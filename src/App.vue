@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       tabSelected: true
-    }
+    };
   },
   methods: {
     selectEncrypt() {
@@ -44,6 +44,12 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary: #2c3e50;
   --secondary: #4f99e4;
@@ -53,11 +59,17 @@ export default {
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   color: var(--primary);
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(45deg, #fff722, #ff26f9);
+  box-shadow: inset -20px 0 38px -18px #ff26f9,
+    inset -3px -13px 65px -18px yellow;
 }
 
 h1 {
