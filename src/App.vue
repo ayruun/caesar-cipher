@@ -52,9 +52,12 @@ export default {
 
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
-  text-align: center;
   color: var(--primary);
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
