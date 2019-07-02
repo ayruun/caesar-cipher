@@ -5,10 +5,9 @@
 
     <p class="headlines">Enter the Message:</p>
     <input id="decrypted-msg" v-model="inputMessage" placeholder="Enter your Message">
-    <button @click="pasteInput">Paste</button>
 
     <p class="headlines">Decrypted:</p>
-    <input :value="decrypt(inputMessage)" disabled>
+    <input id="margin-input" :value="decrypt(inputMessage)" disabled>
   </div>
 </template>
 
@@ -39,35 +38,13 @@ export default {
         .join("");
 
       return this.decryptedMessage;
-    },
-    pasteInput() {
-      // TODO: funktioniert noch nicht
-      let pasteText = document.querySelector('#decrypted-msg');
-      pasteText.focus();
-      document.execCommand('paste');
-      // console.log(pasteText.textContent)
-      this.inputMessage = pasteText.textContent;
     }
   }
 };
 </script>
 
 <style>
-.tab-decrypt {
-  height: 50vh;
-  width: 50vw;
-  background: rgb(255, 255, 255);
-  padding: 25px;
-  box-shadow: 0px 0px 45px -12px rgba(0,0,0,0.75);
-}
-
-.headlines {
-  font-size: 1.2em;
-  margin: 5px;
-}
-
-input {
-  margin-bottom: 25px;
-  width: 100%;
-}
+  #margin-input {
+    margin-bottom: 54px;
+  }
 </style>

@@ -4,12 +4,12 @@
     <input v-model="inputKey" placeholder="Enter a Number lower than 9999">
 
     <p class="headlines">Enter a Message:</p>
-    <input v-model="inputMessage" placeholder="Enter your Message">
+    <input v-model="inputMessage" placeholder="Enter your Message to decrypt">
 
     <p class="headlines">Encrypted:</p>
     <input :value="encrypt(inputMessage)" disabled>
     <input type="hidden" id="encrypted-msg" :value="encryptedMessage">
-    <button @click="copyInput">Copy</button>
+    <button id="copy-btn" @click="copyInput">copy</button>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   methods: {
     encrypt(input) {
       if (!parseInt(this.inputKey)) {
-        return "PLEASE ENTER A KEY!";
+        return "PLEASE ENTER A KEY FIRST!";
       } else if (parseInt(this.inputKey) > 9999) {
         return "Key has to be lower than 9999";
       }
@@ -54,21 +54,13 @@ export default {
 </script>
 
 <style>
-.tab-encrypt {
-  height: 50vh;
-  width: 50vw;
-  background: rgb(255, 255, 255);
-  padding: 25px;
-  box-shadow: 0px 0px 45px -12px rgba(0,0,0,0.75);
-}
-
-.headlines {
-  font-size: 1.2em;
-  margin: 5px;
-}
-
-input {
-  margin-bottom: 25px;
+#copy-btn {
   width: 100%;
+  justify-self: center;
+  border-radius: 7px;
+  border: 2px solid rgb(228, 195, 10);
+  background: var(--accent);
+  padding: 5px 7px;
+  cursor: pointer;
 }
 </style>
