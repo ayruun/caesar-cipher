@@ -84,10 +84,12 @@ body {
 
 :root {
   --primary: #2c3e50;
-  --yellow: #fff722;
-  --pink: #ff26f9;
-  --green: #26ff92e3;
-  --purple: #6422ff;
+  --yellow: #f1eb22;
+  --pink: #eb34e5;
+  --green: #35e08be3;
+  --purple: #5f2fcf;
+  --mint: rgb(170, 255, 213);
+  --rose: rgb(255, 154, 201);
 }
 
 #app {
@@ -101,9 +103,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, var(--yellow), var(--pink));
-  box-shadow: inset -20px 0 38px -18px var(--pink),
-    inset -3px -13px 65px -18px var(--yellow);
+  background: linear-gradient(45deg, var(--rose), var(--mint));
+  box-shadow: inset -20px 0 38px -18px var(--mint),
+    inset -3px -13px 65px -18px var(--rose);
 }
 
 h1 {

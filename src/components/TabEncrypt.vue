@@ -1,13 +1,13 @@
 <template>
   <div class="tab-encrypt">
     <p class="headlines">Encryption Key:</p>
-    <input v-model="inputKey" placeholder="Enter a Number lower than 9999">
+    <input inputmode="numeric" v-model="inputKey" placeholder="Enter a Number lower than 9999">
 
     <p class="headlines">Enter a Message:</p>
     <input v-model="inputMessage" placeholder="Enter your Message to decrypt">
 
     <p class="headlines">Encrypted:</p>
-    <input :value="encrypt(inputMessage)" disabled>
+    <input id="focus-msg" :value="encrypt(inputMessage)">
     <input type="hidden" id="encrypted-msg" :value="encryptedMessage">
     <button id="copy-btn" @click="copyInput">copy</button>
   </div>
@@ -48,6 +48,9 @@ export default {
       document.execCommand("copy");
       strToCopy.setAttribute("type", "hidden");
       window.getSelection().removeAllRanges();
+      let strToFocus = document.querySelector("#focus-msg");
+      strToFocus.setAttribute("type", "text");
+      strToFocus.select();
     }
   }
 };
