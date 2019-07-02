@@ -18,9 +18,19 @@
         @click="selectDecrypt"
       >Decrypt</p>
     </div>
-    
+
     <TabEncrypt v-if="tabSelected" />
     <TabDecrypt v-else />
+
+    <a
+      href="https://github.com/ayruun/caesar-cipher"
+      target="_blank"
+      id="link-btn"
+    >
+      <button>
+        Open on GitHub
+      </button>
+    </a>
   </div>
 </template>
 
@@ -42,21 +52,21 @@ export default {
   methods: {
     selectEncrypt() {
       this.tabSelected = true;
-      this.$refs.encryptBtn.style.color = "var(--accent)";
+      this.$refs.encryptBtn.style.color = "var(--yellow)";
       this.$refs.decryptBtn.style.color = "var(--primary)";
       this.$refs.app.style.background =
-        "linear-gradient(45deg, #fff722, #ff26f9)";
+        "linear-gradient(45deg, var(--yellow), var(--pink))";
       this.$refs.app.style["box-shadow"] =
-        "inset -20px 0 38px -18px #ff26f9, inset -3px -13px 65px -18px #fff722";
+        "inset -20px 0 38px -18px var(--pink), inset -3px -13px 65px -18px var(--yellow)";
     },
     selectDecrypt() {
       this.tabSelected = false;
-      this.$refs.decryptBtn.style.color = "#26ff92e3";
+      this.$refs.decryptBtn.style.color = "var(--green)";
       this.$refs.encryptBtn.style.color = "var(--primary)";
       this.$refs.app.style.background =
-        "linear-gradient(45deg, #26ff92e3, #6422ff)";
+        "linear-gradient(45deg, var(--green), var(--purple))";
       this.$refs.app.style["box-shadow"] =
-        "inset -20px 0 38px -18px #6422ff, inset -3px -13px 65px -18px #26ff92e3";
+        "inset -20px 0 38px -18px var(--purple), inset -3px -13px 65px -18px var(--green)";
     }
   }
 };
@@ -71,8 +81,10 @@ body {
 
 :root {
   --primary: #2c3e50;
-  --secondary: #4f99e4;
-  --accent: #fff722;
+  --yellow: #fff722;
+  --pink: #ff26f9;
+  --green: #26ff92e3;
+  --purple: #6422ff;
 }
 
 #app {
@@ -86,9 +98,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, #fff722, #ff26f9);
-  box-shadow: inset -20px 0 38px -18px #ff26f9,
-    inset -3px -13px 65px -18px #fff722;
+  background: linear-gradient(45deg, var(--yellow), var(--pink));
+  box-shadow: inset -20px 0 38px -18px var(--pink),
+    inset -3px -13px 65px -18px var(--yellow);
 }
 
 h1 {
@@ -112,7 +124,7 @@ p {
 }
 
 #encrypt-btn {
-  color: var(--accent);
+  color: var(--yellow);
 }
 
 #decrypt-btn {
@@ -123,7 +135,7 @@ p {
 .tab-decrypt {
   height: auto;
   width: 50vw;
-  background: rgb(255, 255, 255);
+  background: white;
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0px 0px 45px -12px rgba(0, 0, 0, 0.75);
@@ -139,6 +151,23 @@ input {
   width: 100%;
   border-radius: 5px;
   padding: 2px;
+}
+
+#link-btn {
+  margin: 50px;
+}
+
+#link-btn button {
+  color: white;
+  padding: 7px 10px;
+  background: var(--primary);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+#link-btn button:hover {
+  background: grey;
 }
 
 @media (max-width: 500px) {

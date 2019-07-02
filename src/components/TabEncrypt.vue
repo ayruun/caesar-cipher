@@ -56,11 +56,14 @@ export default {
 <style>
 #copy-btn {
   width: 100%;
-  justify-self: center;
   border-radius: 7px;
-  border: 2px solid rgb(228, 195, 10);
-  background: var(--accent);
+  border: none;
+  background: var(--yellow);
   padding: 5px 7px;
   cursor: pointer;
+}
+
+#copy-btn:hover {
+  background-color: var(--pink);
 }
 </style>
