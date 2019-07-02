@@ -51,7 +51,7 @@ export default {
       window.getSelection().removeAllRanges();
       let strToFocus = document.querySelector("#focus-msg");
       strToFocus.setAttribute("type", "text");
-      strToFocus.select();
+      setTimeout(function() {strToFocus.select();}, 50);
     },
     generateKey() {
       let min = 100;

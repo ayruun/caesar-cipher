@@ -1,7 +1,7 @@
 <template>
   <div class="tab-decrypt">
-    <p class="headlines">Encryption Key:</p>
-    <input v-model="inputKey" placeholder="Enter your Key">
+    <p class="headlines">Personal Key:</p>
+    <input inputmode="numeric" v-model="inputKey" placeholder="Enter your Key">
 
     <p class="headlines">Enter the Message:</p>
     <input id="decrypted-msg" v-model="inputMessage" placeholder="Enter your Message">
