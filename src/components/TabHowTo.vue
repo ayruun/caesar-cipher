@@ -3,7 +3,7 @@
     <h2>How to use:</h2>
     <p>
       <b>Encrypt:</b>
-      <br />Select the "Encrypt" Tab. Enter a number lower than 9999 as a personal key. Then enter the message you want to encrypt. Copy the encrypted message. Sending the key and encrypted message seperately is recommended.
+      <br />Select the "Encrypt" Tab. Generate a personal key. Then enter the message you want to encrypt. Copy the encrypted message. Sending the key and encrypted message seperately is recommended.
     </p>
     <p>
       <b>Decrypt:</b>
@@ -25,7 +25,7 @@ export default {};
 
 .how-to h2 {
   align-self: center;
-  margin: 15px 0;
+  margin: 0;
 }
 
 .how-to p {
@@ -38,7 +38,6 @@ export default {};
   .how-to h2 {
     font-size: 18px;
     align-self: center;
-    margin: 10px 0;
   }
 
   .how-to p {

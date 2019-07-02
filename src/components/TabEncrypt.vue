@@ -1,7 +1,10 @@
 <template>
   <div class="tab-encrypt">
     <p class="headlines">Encryption Key:</p>
-    <input inputmode="numeric" v-model="inputKey" placeholder="Enter a Number lower than 9999">
+    <div class="generator">
+      <input v-model="inputKey" placeholder="Press Generate Button" disabled>
+      <button id="key-btn" @click="generateKey">Generate</button>
+    </div>
 
     <p class="headlines">Enter a Message:</p>
     <input v-model="inputMessage" placeholder="Enter your Message to decrypt">
@@ -26,9 +29,7 @@ export default {
   methods: {
     encrypt(input) {
       if (!parseInt(this.inputKey)) {
-        return "PLEASE ENTER A KEY FIRST!";
-      } else if (parseInt(this.inputKey) > 9999) {
-        return "Key has to be lower than 9999";
+        return "PLEASE GENERATE A KEY!";
       }
 
       this.encryptedMessage = input
@@ -51,6 +52,11 @@ export default {
       let strToFocus = document.querySelector("#focus-msg");
       strToFocus.setAttribute("type", "text");
       strToFocus.select();
+    },
+    generateKey() {
+      let min = 100;
+      let max = 9999;
+      this.inputKey = Math.floor(Math.random() * (max - min) + min);
     }
   }
 };
@@ -67,6 +73,24 @@ export default {
 }
 
 #copy-btn:hover {
+  background-color: var(--pink);
+}
+
+.generator {
+  display: flex;
+}
+
+#key-btn {
+  height: 23px;
+  width: 50%;
+  border: none;
+  margin-left: 5px;
+  border-radius: 5px;
+  color: var(--primary);
+  background-color: var(--yellow);
+}
+
+#key-btn:hover {
   background-color: var(--pink);
 }
 </style>
