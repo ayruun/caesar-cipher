@@ -19,7 +19,8 @@
       >Decrypt</p>
     </div>
 
-    <TabEncrypt v-if="tabSelected" />
+    <TabHowTo v-if="tabSelected === 'welcome'"/>
+    <TabEncrypt v-else-if="tabSelected === 'encrypt'" />
     <TabDecrypt v-else />
 
     <a
@@ -35,23 +36,25 @@
 </template>
 
 <script>
+import TabHowTo from "./components/TabHowTo.vue";
 import TabEncrypt from "./components/TabEncrypt.vue";
 import TabDecrypt from "./components/TabDecrypt.vue";
 
 export default {
   name: "app",
   components: {
+    TabHowTo,
     TabEncrypt,
     TabDecrypt
   },
   data() {
     return {
-      tabSelected: true
+      tabSelected: "welcome"
     };
   },
   methods: {
     selectEncrypt() {
-      this.tabSelected = true;
+      this.tabSelected = "encrypt";
       this.$refs.encryptBtn.style.color = "var(--yellow)";
       this.$refs.decryptBtn.style.color = "var(--primary)";
       this.$refs.app.style.background =
@@ -60,7 +63,7 @@ export default {
         "inset -20px 0 38px -18px var(--pink), inset -3px -13px 65px -18px var(--yellow)";
     },
     selectDecrypt() {
-      this.tabSelected = false;
+      this.tabSelected = "decrypt";
       this.$refs.decryptBtn.style.color = "var(--green)";
       this.$refs.encryptBtn.style.color = "var(--primary)";
       this.$refs.app.style.background =
@@ -81,10 +84,12 @@ body {
 
 :root {
   --primary: #2c3e50;
-  --yellow: #fff722;
-  --pink: #ff26f9;
-  --green: #26ff92e3;
-  --purple: #6422ff;
+  --yellow: #f1eb22;
+  --pink: #eb34e5;
+  --green: #35e08be3;
+  --purple: #5f2fcf;
+  --mint: rgb(170, 255, 213);
+  --rose: rgb(255, 154, 201);
 }
 
 #app {
@@ -98,9 +103,9 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, var(--yellow), var(--pink));
-  box-shadow: inset -20px 0 38px -18px var(--pink),
-    inset -3px -13px 65px -18px var(--yellow);
+  background: linear-gradient(45deg, var(--rose), var(--mint));
+  box-shadow: inset -20px 0 38px -18px var(--mint),
+    inset -3px -13px 65px -18px var(--rose);
 }
 
 h1 {
@@ -124,16 +129,17 @@ p {
 }
 
 #encrypt-btn {
-  color: var(--yellow);
+  color: var(--primary);
 }
 
 #decrypt-btn {
   color: var(--primary);
 }
 
+.how-to,
 .tab-encrypt,
 .tab-decrypt {
-  height: auto;
+  height: 300px;
   width: 50vw;
   background: white;
   padding: 25px;
@@ -175,6 +181,7 @@ input {
     font-size: 35px;
   }
 
+  .how-to,
   .tab-encrypt,
   .tab-decrypt {
     width: 70vw;

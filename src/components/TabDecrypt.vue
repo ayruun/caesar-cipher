@@ -44,7 +44,5 @@ export default {
 </script>
 
 <style>
-  #margin-input {
-    margin-bottom: 54px;
-  }
+
 </style>
