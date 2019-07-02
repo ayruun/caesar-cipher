@@ -19,7 +19,8 @@
       >Decrypt</p>
     </div>
 
-    <TabEncrypt v-if="tabSelected" />
+    <TabHowTo v-if="tabSelected === 'welcome'"/>
+    <TabEncrypt v-else-if="tabSelected === 'encrypt'" />
     <TabDecrypt v-else />
 
     <a
@@ -35,23 +36,25 @@
 </template>
 
 <script>
+import TabHowTo from "./components/TabHowTo.vue";
 import TabEncrypt from "./components/TabEncrypt.vue";
 import TabDecrypt from "./components/TabDecrypt.vue";
 
 export default {
   name: "app",
   components: {
+    TabHowTo,
     TabEncrypt,
     TabDecrypt
   },
   data() {
     return {
-      tabSelected: true
+      tabSelected: "welcome"
     };
   },
   methods: {
     selectEncrypt() {
-      this.tabSelected = true;
+      this.tabSelected = "encrypt";
       this.$refs.encryptBtn.style.color = "var(--yellow)";
       this.$refs.decryptBtn.style.color = "var(--primary)";
       this.$refs.app.style.background =
@@ -60,7 +63,7 @@ export default {
         "inset -20px 0 38px -18px var(--pink), inset -3px -13px 65px -18px var(--yellow)";
     },
     selectDecrypt() {
-      this.tabSelected = false;
+      this.tabSelected = "decrypt";
       this.$refs.decryptBtn.style.color = "var(--green)";
       this.$refs.encryptBtn.style.color = "var(--primary)";
       this.$refs.app.style.background =
@@ -124,16 +127,17 @@ p {
 }
 
 #encrypt-btn {
-  color: var(--yellow);
+  color: var(--primary);
 }
 
 #decrypt-btn {
   color: var(--primary);
 }
 
+.how-to,
 .tab-encrypt,
 .tab-decrypt {
-  height: auto;
+  height: 300px;
   width: 50vw;
   background: white;
   padding: 25px;
@@ -175,6 +179,7 @@ input {
     font-size: 35px;
   }
 
+  .how-to,
   .tab-encrypt,
   .tab-decrypt {
     width: 70vw;
