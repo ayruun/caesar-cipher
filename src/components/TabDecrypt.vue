@@ -23,10 +23,10 @@ export default {
   },
   methods: {
     decrypt(input) {
-      if (!parseInt(this.inputKey)) {
+      if (!this.inputKey) {
         return "PLEASE ENTER YOUR KEY!";
-      } else if (parseInt(this.inputKey) > 9999) {
-        return "Key has to be lower than 9999";
+      } else if (parseInt(this.inputKey) > 9999 || this.inputKey.match(/\D/gi)) {
+        return "INVALID KEY";
       }
 
       this.decryptedMessage = input
