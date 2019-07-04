@@ -191,6 +191,10 @@ input {
   background: grey;
 }
 
+#link-btn button:focus {
+  outline: none;
+}
+
 @media (max-width: 500px) {
   h1 {
     font-size: 35px;
