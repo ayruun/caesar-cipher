@@ -3,7 +3,7 @@
     id="app"
     ref="app"
   >
-    <h1>Caesar Cipher</h1>
+    <h1 @click="selectHowTo">CAESAR CIPHER</h1>
 
     <div class="tab-menu">
       <p
@@ -19,7 +19,7 @@
       >Decrypt</p>
     </div>
 
-    <TabHowTo v-if="tabSelected === 'welcome'"/>
+    <TabHowTo v-if="tabSelected === 'how-to'" />
     <TabEncrypt v-else-if="tabSelected === 'encrypt'" />
     <TabDecrypt v-else />
 
@@ -28,9 +28,7 @@
       target="_blank"
       id="link-btn"
     >
-      <button>
-        Open on GitHub
-      </button>
+      <button>Open on GitHub</button>
     </a>
   </div>
 </template>
@@ -49,10 +47,19 @@ export default {
   },
   data() {
     return {
-      tabSelected: "welcome"
+      tabSelected: "how-to"
     };
   },
   methods: {
+    selectHowTo() {
+      this.tabSelected = "how-to";
+      this.$refs.encryptBtn.style.color = "var(--primary)";
+      this.$refs.decryptBtn.style.color = "var(--primary)";
+      this.$refs.app.style.background =
+        "linear-gradient(45deg, var(--rose), var(--mint))";
+      this.$refs.app.style["box-shadow"] =
+        "inset -20px 0 38px -18px var(--mint), inset -3px -13px 65px -18px var(--rose)";
+    },
     selectEncrypt() {
       this.tabSelected = "encrypt";
       this.$refs.encryptBtn.style.color = "var(--yellow)";
@@ -76,6 +83,8 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Cinzel&display=swap");
+
 html,
 body {
   margin: 0;
@@ -109,7 +118,13 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-family: "Cinzel", serif;
+  font-size: 56px;
+}
+
+h1:hover {
+  cursor: pointer;
+  color: var(--yellow);
 }
 
 p {
