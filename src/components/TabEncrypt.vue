@@ -63,19 +63,6 @@ export default {
 </script>
 
 <style>
-#copy-btn {
-  width: 100%;
-  border-radius: 7px;
-  border: none;
-  background: var(--yellow);
-  padding: 5px 7px;
-  cursor: pointer;
-}
-
-#copy-btn:hover {
-  background-color: var(--pink);
-}
-
 .generator {
   display: flex;
 }
@@ -90,7 +77,22 @@ export default {
   background-color: var(--yellow);
 }
 
-#key-btn:hover {
+#copy-btn {
+  width: 100%;
+  border-radius: 7px;
+  border: none;
+  background: var(--yellow);
+  padding: 5px 7px;
+}
+
+#key-btn:hover,
+#copy-btn:hover {
   background-color: var(--pink);
+  cursor: pointer;
+}
+
+#key-btn:focus,
+#copy-btn:focus {
+  outline: none;
 }
 </style>
