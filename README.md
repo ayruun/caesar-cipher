@@ -1,29 +1,14 @@
 # caesar-cipher
+This is a personal Portfolio-Project for aarigato.com.
 
 ## Project setup
+Clone the repository and run:
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## Production Builds
 ```
 npm run build
 ```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
